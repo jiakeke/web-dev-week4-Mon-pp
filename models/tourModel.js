@@ -85,10 +85,12 @@ if (require.main === module) {
   console.log(`findById called after item deleted: ${findById(2)}`);
 }
 
-module.exports = {
+const Tour = {
   getAll,
   addOne,
   findById,
   updateOneById,
   deleteOneById,
 };
+
+module.exports = Tour;
