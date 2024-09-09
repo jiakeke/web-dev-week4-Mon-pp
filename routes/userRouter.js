@@ -1,5 +1,8 @@
 const express = require('express');
 const router = express.Router();
+const auth = require('../middleware/auth');
+
+router.use(auth);
 
 const {
     getAllUsers,
@@ -10,10 +13,10 @@ const {
 } = require("../controllers/userControllers"); 
 
 // GET /tours
-router.get("/", getAllUsers);
+router.get("/", auth, getAllUsers);
 
 // POST /tours
-router.post("/", createUser);
+router.post("/", auth, createUser);
 
 // GET /tours/:tourId
 router.get("/:userId", getUserById);
